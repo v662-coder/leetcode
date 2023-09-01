@@ -131,28 +131,23 @@ class Tree
     {
         
         // add your code here 
-        Queue<Node> q = new LinkedList<>();
-        q.add(node);
-        q.add(null);
-        boolean flag = false;
+           // code 1
+        Queue<Node> qr = new LinkedList<>();
+        qr.add(node);
         
-        while(q.size()>0){
-            Node curr = q.remove();
-            if(curr==null){
-                flag = true;
-                if(q.size()==0) break;
-                else q.add(null);
-            }
-            else{
-                if(q.peek()==null || flag==true){
+        while(qr.size()>0){
+            int n = qr.size();
+            for(int i=0; i<n; i++){
+                Node curr = qr.remove();
+                if(i==0 || i==n-1){
                     System.out.print(curr.data+" ");
-                    flag =false;
                 }
-                if(curr.left!=null) q.add(curr.left);
-                if(curr.right!=null) q.add(curr.right);
-            }
-        }
-       
+                if(curr.left!=null) qr.add(curr.left);
+                if(curr.right!=null) qr.add(curr.right);
+            }}
+        
+        // code 2
+      
     }
     
 }
