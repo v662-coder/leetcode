@@ -37,9 +37,10 @@ class Solution {
 
         // code here
         for (int i = 0; i < n; i++) {
-            if (arr[i] == k)
-                return i+1;
+            // if the current element is equal to k, return the index + 1
+            if (arr[i] == k) return i + 1;
         }
+        // return -1 if k is not found in the array
         return -1;
     }
 }
