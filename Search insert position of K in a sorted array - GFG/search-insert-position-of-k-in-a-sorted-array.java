@@ -33,19 +33,26 @@ class Solution
     static int searchInsertK(int Arr[], int N, int k)
     {
         // code here
-       for(int i = 0; i < N; i++)
-     
+      int start = 0;
+    int end = N - 1;
+ 
+    // Traverse the search space
+    while (start <= end)
+    {
+        int mid = (start + end) / 2;
+ 
         // If K is found
-        if (Arr[i] == k)
-            return i;
+        if (Arr[mid] == k)
+            return mid;
  
-        // If current array element
-        // exceeds K
-        else if (Arr[i] > k)
-            return i;
+        else if (Arr[mid] < k)
+            start = mid + 1;
  
-    // If all elements are smaller
-    // than K
-    return N;
+        else
+            end = mid - 1;
+    }
+ 
+    // Return insert position
+    return end + 1;
     }
 }
