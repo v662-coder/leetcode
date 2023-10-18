@@ -28,13 +28,28 @@ class GFG {
 // User function Template for Java
 
 class Solution {
-    int missingNumber(int array[], int n) {
+    int missingNumber(int nums[], int n) {
         // Your Code Here
-        int total=n*(n+1)/2;
-        int sum=0;
-        for(int i=0;i<n-1;i++){
-           sum += array[i];
+        
+    int N = nums.length + 1;
+        
+        // Perform cyclic sort to place each element at its correct index
+        for (int i = 0; i < N - 1; i++) {
+            while (nums[i] > 0 && nums[i] < N && nums[nums[i] - 1] != nums[i]) {
+                int temp = nums[nums[i] - 1];
+                nums[nums[i] - 1] = nums[i];
+                nums[i] = temp;
+            }
         }
-        return total-sum;
+        
+        // Find the first element that is not in its correct position
+        for (int i = 0; i < N - 1; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
+        }
+        
+        // If all elements are in their correct positions, the missing number is N
+        return N;
     }
 }
