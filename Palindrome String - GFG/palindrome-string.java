@@ -25,7 +25,7 @@ class GFG {
 class Solution {
     int isPalindrome(String S) {
         // code here
-        int i = 0, j = S.length() - 1;
+   int i = 0, j = S.length() - 1;
  
         // While there are characters to compare
         while (i < j) {
